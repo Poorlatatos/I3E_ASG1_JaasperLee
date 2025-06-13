@@ -1,26 +1,24 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
     public int currentScore = 0;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI collectedItemsText;
 
-    public TextMeshProUGUI collectedItemsText; // <-- Add this in Inspector
-    private List<string> collectedItems = new List<string>(); // <-- Track items
+    private HashSet<string> collectedItems = new HashSet<string>(); // ✅ Unique items only
+    public int totalRequiredItems = 5;
 
     void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-        }
         else
-        {
             Destroy(gameObject);
-        }
     }
 
     void Start()
@@ -37,7 +35,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddCollectedItem(string itemName)
     {
-        collectedItems.Add(itemName);
+        collectedItems.Add(itemName); // HashSet prevents duplicates
         UpdateCollectedItemsText();
     }
 
@@ -53,5 +51,10 @@ public class ScoreManager : MonoBehaviour
         {
             collectedItemsText.text += "- " + item + "\n";
         }
+    }
+
+    public bool HasAllItems()
+    {
+        return collectedItems.Count >= totalRequiredItems;
     }
 }
