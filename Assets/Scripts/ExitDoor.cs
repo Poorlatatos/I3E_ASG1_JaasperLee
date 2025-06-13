@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class ExitDoor : MonoBehaviour
 {
     public string playerTag = "Player";
@@ -27,7 +27,7 @@ public class ExitDoor : MonoBehaviour
     {
         messageText.text = "You unlocked the exit!";
         Debug.Log("Level Complete!");
-        // Optional: Load next scene or play animation here
+        SceneManager.LoadScene("EndScreen");
     }
 
     private void OnTriggerEnter(Collider other)
