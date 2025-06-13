@@ -2,16 +2,22 @@ using UnityEngine;
 
 public class TouchNDead : MonoBehaviour
 {
-
-    public Transform spawnPoint;
-
+    public Transform spawnPoint;                // Current respawn point
     public string hazardTag = "Hazard";
+    public string checkpointTag = "Checkpoint"; // Tag for checkpoints
 
     private void OnTriggerEnter(Collider other)
     {
+        // If player touches a hazard, reset to current spawn point
         if (other.CompareTag(hazardTag))
         {
             ResetPlayer();
+        }
+
+        // If player touches a checkpoint, update spawn point
+        if (other.CompareTag(checkpointTag))
+        {
+            UpdateSpawnPoint(other.transform);
         }
     }
 
@@ -19,7 +25,7 @@ public class TouchNDead : MonoBehaviour
     {
         transform.position = spawnPoint.position;
 
-        // Optional: reset Rigidbody velocity if needed
+        // Optional: reset Rigidbody velocity
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -28,5 +34,11 @@ public class TouchNDead : MonoBehaviour
         }
 
         Debug.Log("Player reset to spawn point.");
+    }
+
+    void UpdateSpawnPoint(Transform newSpawnPoint)
+    {
+        spawnPoint = newSpawnPoint;
+        Debug.Log("Checkpoint reached. Spawn point updated.");
     }
 }

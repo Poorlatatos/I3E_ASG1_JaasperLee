@@ -3,7 +3,7 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
     public bool isOpen = false;
-    public Vector3 openPositionOffset = new Vector3(0, 3, 0);
+    public Vector3 openPositionOffset = new Vector3(0, 4, 0);
     private Vector3 closedPosition;
     private Vector3 openPosition;
     public float openSpeed = 2f;

@@ -3,18 +3,26 @@ using UnityEngine;
 public class SwitchScript : MonoBehaviour
 {
     public DoorController door;
+
+    public VentilationSwitch vent;
     private bool isPlayerNear = false;
-    public bool flipY = false;
+    private bool hasBeenFlipped = false;
+    public AudioSource playSound;
     void Update()
     {
-        if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerNear && Input.GetKeyDown(KeyCode.E) && !hasBeenFlipped)
         {
             door.OpenDoor();
-
-            Vector3 eulerAngles = transform.localEulerAngles;
-            if (flipY) { eulerAngles.y = 180; }
-            transform.localEulerAngles = eulerAngles;
+            FlipSwitch();
+            hasBeenFlipped = true; // Prevent multiple flips
+            playSound.Play();
         }
+    }
+
+    void FlipSwitch()
+    {
+        // Flip the switch 180 degrees on the Y axis
+        transform.Rotate(0, 180f, 0);
     }
 
     void OnTriggerEnter(Collider other)
