@@ -17,12 +17,21 @@ If you instead downloaded the entire Unity Project itself, go ahead and just put
 Unity Editor after downloading and thus from there you can play and run as you please.
 
 Computer Requirements
-      - Minimum -                - Recommended -
-CPU : AMD Ryzen 5 5600x   |   CPU : AMD Ryzen 5 7600x
-GPU : Radeon RX 5700      |   GPU : Radeon RX 7700
-OS  : Windows 10/11       |   OS  : Windows 10/11
-Memory : 4GB              |   Memory : 8GB
-Storage : 2GB             |   Storage : 4GB
+
+- Minimum -                
+CPU : AMD Ryzen 5 5600x
+GPU : Radeon RX 5700
+OS  : Windows 10/11
+Memory : 4GB
+Storage : 2GB
+
+
+- Recommended -
+CPU : AMD Ryzen 5 7600x
+GPU : Radeon RX 7700
+OS  : Windows 10/11
+Memory : 8GB
+Storage : 4GB
 
 
 Limitations - Bugs
