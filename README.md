@@ -44,3 +44,10 @@ Stuck? Here is some help,
 - Overall the game should be pretty straightfoward, look out for signs that explain what you need
 to do to get over certain obstacles. I recommend if you can't reach up high in certain places just
 find boxes all over the map and stack them up high to reach these areas.
+
+Credit -
+Modular First Person Controller by - JeCase
+Low-Poly Simple Nature Pack by - JustCreate
+BGM & SFX provided by - Kevin Macleod & FreeMusicArchive
+
+Other assets are made by me personally in Maya 2026.
