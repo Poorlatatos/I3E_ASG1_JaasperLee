@@ -10,12 +10,14 @@ public class Collectibles : MonoBehaviour
 
     public int scoreValue = 1;
     public string itemName = "Unnamed Item"; // <-- Add this line
-
+    public AudioSource playSound;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Player))
         {
             ScoreManager.Instance.AddScore(scoreValue);
+
+            playSound.Play();
 
             // Notify the UI of this collected item
             ScoreManager.Instance.AddCollectedItem(itemName);
